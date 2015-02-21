@@ -1,0 +1,34 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated 21-feb-2015 12:11:17 by Hibernate Tools 3.4.0.CR1 -->
+<hibernate-mapping>
+    <class name="myApp.Centro" table="centro" catalog="pruebatasen">
+        <composite-id name="id" class="myApp.CentroId">
+            <key-property name="idUniversidad" type="int">
+                <column name="idUniversidad" />
+            </key-property>
+            <key-property name="idCentro" type="int">
+                <column name="idCentro" />
+            </key-property>
+        </composite-id>
+        <many-to-one name="universidad" class="myApp.Universidad" update="false" insert="false" fetch="select">
+            <column name="idUniversidad" not-null="true" />
+        </many-to-one>
+        <property name="nombreCentro" type="string">
+            <column name="nombreCentro" length="100" not-null="true" />
+        </property>
+        <property name="descripcion" type="string">
+            <column name="descripcion" length="500" />
+        </property>
+        <property name="direccion" type="string">
+            <column name="direccion" length="500" />
+        </property>
+        <property name="paginaWeb" type="string">
+            <column name="paginaWeb" length="100" />
+        </property>
+        <property name="telefono" type="string">
+            <column name="telefono" length="20" />
+        </property>
+    </class>
+</hibernate-mapping>

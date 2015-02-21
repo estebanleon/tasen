@@ -1,0 +1,27 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated 21-feb-2015 12:11:17 by Hibernate Tools 3.4.0.CR1 -->
+<hibernate-mapping>
+    <class name="myApp.Universidad" table="universidad" catalog="pruebatasen">
+        <id name="idUniversidad" type="java.lang.Integer">
+            <column name="idUniversidad" />
+            <generator class="identity" />
+        </id>
+        <property name="nombreUniversidad" type="string">
+            <column name="nombreUniversidad" length="100" not-null="true" />
+        </property>
+        <property name="descripcion" type="string">
+            <column name="descripcion" length="500" />
+        </property>
+        <property name="paginaWeb" type="string">
+            <column name="paginaWeb" length="100" />
+        </property>
+        <set name="centros" table="centro" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="idUniversidad" not-null="true" />
+            </key>
+            <one-to-many class="myApp.Centro" />
+        </set>
+    </class>
+</hibernate-mapping>
