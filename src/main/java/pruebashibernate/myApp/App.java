@@ -1,5 +1,4 @@
-package pruebashibernate.myApp;
-
+import myApp.*;
 import java.io.File;
 import java.util.List;
 import org.hibernate.HibernateException; 
@@ -7,6 +6,9 @@ import org.hibernate.Session;
 import org.hibernate.Transaction;
 import org.hibernate.SessionFactory;
 import org.hibernate.cfg.Configuration;
+
+
+package pruebashibernate.myApp;
 
 /**
  * Hello world!
@@ -21,6 +23,7 @@ public class App
     {
     	//sincronizado
     	try{
+    		Centro c;
             factory = new Configuration().configure().buildSessionFactory();
          }catch (Throwable ex) { 
             System.err.println("Failed to create sessionFactory object." + ex);
@@ -35,6 +38,8 @@ public class App
     {
     	Session session = factory.openSession();
     	Transaction tx = null;
+    	Centro kk;
+    	
     	try{
     		tx = session.beginTransaction();
     		List centros = session.createQuery("FROM centro").list();
