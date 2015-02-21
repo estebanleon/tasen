@@ -19,7 +19,7 @@ public class App
 	
     public static void main( String[] args )
     {
-    	
+    	//sincronizado
     	try{
             factory = new Configuration().configure().buildSessionFactory();
          }catch (Throwable ex) { 
